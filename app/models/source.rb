@@ -10,7 +10,12 @@ class Source < ActiveRecord::Base
 
   default_scope -> { order('created_at DESC') }
 
+  # Temp fix after upgrading to Rails 4.2.4. Reserved words cannot be used as scopes.
+  def self.dangerous_class_method?(method_name)
+    method_name.to_s == 'public' ? false : super
+  end
   scope :public,     -> { where( :private => false ) }
+  
   scope :popular,    -> { order( 'views DESC' ) }
   scope :by_trend,   -> { select( 'sources.*, ( sources.views / ( ( UNIX_TIMESTAMP() - sources.created_at ) / 86400 ) ) AS trend' ).order('trend DESC') }
 

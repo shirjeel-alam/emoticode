@@ -110,7 +110,7 @@ EmoticodeRails::Application.routes.draw do
   end
 
   controller :language do
-    get ':name/',    to: :archive, as: :language_archive, constraints: { name: Patterns::ROUTE_PATTERN }
+    get ':name/',    action: :archive, as: :language_archive, constraints: { name: Patterns::ROUTE_PATTERN }
   end
 
   controller :source do

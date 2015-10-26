@@ -1,37 +1,41 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~>4.0.0'
-gem 'mysql2'                                                      # mysql adapter
-gem 'sass-rails', '~> 4.0.0'                                      # scss
-gem 'uglifier', '>= 1.3.0'                                        # uglify js in production
-gem 'coffee-rails', '~> 4.0.0'                                    # coffee-script
+gem 'rails', '4.2.4'
+gem 'mysql2', '0.3.20'                                            # mysql adapter
+gem 'sass-rails'                                                  # scss
+gem 'uglifier'                                                    # uglify js in production
+gem 'coffee-rails'                                                # coffee-script
 gem 'jquery-rails'                                                # jquery
-gem 'jbuilder', '~> 1.2'                                          # json api
-gem "albino"                                                      # syntax highlight
-gem "nokogiri"                                                    # syntax -> html
-gem 'will_paginate', '~> 3.0'                                     # pagination
+gem 'jbuilder'                                                    # json api
+gem 'albino'                                                      # syntax highlight
+gem 'nokogiri'                                                    # syntax -> html
+gem 'will_paginate'                                               # pagination
 gem 'fastimage_resize'                                            # avatar resizing
-gem "garb", git: 'git://github.com/Sija/garb.git'                 # google analytics api
 gem 'whenever', require: false                                    # cron jobs with ease
-gem 'thinking-sphinx', '~> 3.0.2'                                 # sphinx ftw
-gem "charon", "~> 1.0.0"                                          # check for spammers
-gem "htmlentities"
-gem "rabl"
-gem 'roadie'
+gem 'thinking-sphinx'                                             # sphinx library
+gem 'charon'                                                      # check for spammers
+gem 'htmlentities'
+gem 'rabl'
 gem 'impressionist'
 gem 'redcarpet'
 gem 'query_diet'
-gem "recaptcha", require: "recaptcha/rails"
+gem 'recaptcha', require: 'recaptcha/rails'
 
 gem 'omniauth'                                                    # social auth
-gem 'omniauth-facebook'                                           # facebook connect
-gem "omniauth-github", "~> 1.1.1"                                 # github connect
+gem 'omniauth-facebook', '1.4.1'                                  # facebook connect
+gem 'omniauth-github'                                             # github connect
 
-gem 'dalli'
+gem 'dalli'                                                       # memcache client
 
 # social features
-gem "koala", "~> 1.7.0rc1"
-gem "twitter", "~> 4.8.1"
+# gem 'koala', '~> 1.7.0rc1'
+gem 'koala', '~> 2.2'
+gem 'twitter', '~> 4.8.1'
+
+# google analytics api OUTDATED. Use Legato (https://github.com/tpitale/legato)
+# gem 'garb', git: 'git://github.com/Sija/garb.git'
+
+# gem 'roadie' UNUSED GEM. If put back use 2.4.2
 
 # server side
 # gem 'unicorn'
@@ -52,4 +56,5 @@ end
 group :development, :test do
   gem 'annotate'
   gem 'pry-rails'
+  gem 'puma'
 end
