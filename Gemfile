@@ -27,7 +27,7 @@ gem 'omniauth'                                                    # social auth
 gem 'omniauth-facebook'                                           # facebook connect
 gem "omniauth-github", "~> 1.1.1"                                 # github connect
 
-gem 'gibson', '~> 1.2.1'
+gem 'dalli'
 
 # social features
 gem "koala", "~> 1.7.0rc1"
