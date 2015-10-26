@@ -34,4 +34,6 @@ EmoticodeRails::Application.configure do
   config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'DEBUG')
 
   config.cache_store = :dalli_store
+
+  config.action_mailer.delivery_method = :letter_opener
 end

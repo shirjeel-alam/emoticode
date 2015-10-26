@@ -51,6 +51,7 @@ gem 'newrelic_rpm'
 group :development do
   gem 'quiet_assets'
   gem 'better_errors'
+  gem 'letter_opener'
 end
 
 group :development, :test do
