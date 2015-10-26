@@ -2,7 +2,7 @@ class Api::V1::SourcesController < Api::V1::ApiController
 =begin
   def index
     @per_page = 15
-    @sources = Source.public.paginate( :page => params[:page], :per_page => @per_page )
+    @sources = Source.visible.paginate( :page => params[:page], :per_page => @per_page )
   end
 
   def show

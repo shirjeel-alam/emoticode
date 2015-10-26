@@ -1,4 +1,4 @@
-cache "sitemap_snippets_#{@page}_#{Source.public.count}" do
+cache "sitemap_snippets_#{@page}_#{Source.visible.count}" do
 
   xml.urlset(xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9") do
     [ 'about', 'contact', 'sitemap' ].each do |page|

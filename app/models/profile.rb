@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id                :integer          not null, primary key
+#  user_id           :integer          not null
+#  aboutme           :text(16777215)
+#  website           :string(255)
+#  gplus             :string(255)
+#  avatar            :integer          default(0), not null
+#  weekly_newsletter :boolean          default(TRUE)
+#  follow_mail       :boolean          default(TRUE)
+#
+
 class Profile < ActiveRecord::Base
   include Rateable
 

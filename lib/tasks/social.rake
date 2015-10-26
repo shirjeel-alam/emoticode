@@ -4,7 +4,7 @@ require 'facebook_client'
 namespace :social do
   desc "Posts 2 random sources on Twitter and Facebook"
   task publish_random: :environment do
-    post Source.public.order('RAND()').limit(2)
+    post Source.visible.order('RAND()').limit(2)
   end
 
   desc "Publish new contents on Twitter and Facebook"

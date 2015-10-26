@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
   def feed
     @cached  = "main_feed"
-    @sources = Source.public.limit(50) 
+    @sources = Source.visible.limit(50) 
     render_feed
   end
 
@@ -9,7 +9,7 @@ class FeedsController < ApplicationController
     @language = @languages.select { |l| l.name == params[:language] }.first
     if @language 
       @cached  = "language_#{@language.id}_feed"        
-      @sources = @language.sources.public.limit(50) 
+      @sources = @language.sources.visible.limit(50) 
       render_feed
     else
       render_404
@@ -20,7 +20,7 @@ class FeedsController < ApplicationController
     @user = User.find_by_username( params[:username] )
     if @user
       @cached  = "user_#{@user.id}_feed"
-      @sources = @user.sources.public.order('created_at DESC').limit(50) 
+      @sources = @user.sources.visible.order('created_at DESC').limit(50) 
       render_feed
     else
       render_404

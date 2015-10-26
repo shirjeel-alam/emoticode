@@ -4,7 +4,7 @@ namespace :blog do
   desc "Posts random sources on the Wordpress Blog"
   task publish_random: :environment do
     config  = Rails.application.config.secrets['Blog']
-    sources = Source.public.order('RAND()').limit(5)
+    sources = Source.visible.order('RAND()').limit(5)
     blog    = XMLRPC::Client.new( config['url'], '/xmlrpc.php' )
     categories = blog.call( 'wp.getCategories', 1, config['username'], config['password'] )
 

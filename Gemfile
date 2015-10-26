@@ -20,6 +20,7 @@ gem 'impressionist'
 gem 'redcarpet'
 gem 'query_diet'
 gem 'recaptcha', require: 'recaptcha/rails'
+gem 'responders'
 
 gem 'omniauth'                                                    # social auth
 gem 'omniauth-facebook', '1.4.1'                                  # facebook connect

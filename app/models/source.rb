@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: sources
+#
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  language_id     :integer
+#  private         :integer          default(0), not null
+#  name            :string(255)      not null
+#  title           :string(255)      not null
+#  description     :text(65535)
+#  created_at      :integer          not null
+#  text            :text(4294967295) not null
+#  views           :integer          default(0)
+#  socialized      :boolean          default(FALSE)
+#  updated_at      :integer          default(0)
+#  favorites_count :integer          default(0)
+#  comments_count  :integer          default(0)
+#
+
 class Source < ActiveRecord::Base
   is_impressionable :counter_cache => true, :column_name => :views
 
@@ -10,14 +30,10 @@ class Source < ActiveRecord::Base
 
   default_scope -> { order('created_at DESC') }
 
-  # Temp fix after upgrading to Rails 4.2.4. Reserved words cannot be used as scopes.
-  def self.dangerous_class_method?(method_name)
-    method_name.to_s == 'public' ? false : super
-  end
-  scope :public,     -> { where( :private => false ) }
-  
-  scope :popular,    -> { order( 'views DESC' ) }
-  scope :by_trend,   -> { select( 'sources.*, ( sources.views / ( ( UNIX_TIMESTAMP() - sources.created_at ) / 86400 ) ) AS trend' ).order('trend DESC') }
+  # scope :public,     -> { where( :private => false ) }
+  scope :visible, -> { where( :private => false ) }
+  scope :popular, -> { order( 'views DESC' ) }
+  scope :by_trend, -> { select( 'sources.*, ( sources.views / ( ( UNIX_TIMESTAMP() - sources.created_at ) / 86400 ) ) AS trend' ).order('trend DESC') }
 
   validates :title, presence: true, length: { :minimum => 5, :maximum => 255 }
   validates :text, presence: true, length: { :minimum => 25 }

@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id            :integer          not null, primary key
+#  username      :string(255)      not null
+#  email         :string(255)      not null
+#  password_hash :string(32)       not null
+#  salt          :string(10)       not null
+#  last_login    :integer          default(0)
+#  last_login_ip :string(15)
+#  level         :integer          not null
+#  status        :integer          not null
+#  created_at    :integer          not null
+#  updated_at    :integer
+#  is_bot        :integer          default(0)
+#
+
 class User < ActiveRecord::Base
   scope :latest, -> { order('created_at DESC') }
 
@@ -200,7 +218,7 @@ class User < ActiveRecord::Base
         end
       end
 
-      Source.public.where(['user_id IN ( ? ) OR language_id IN ( ? )', user_ids, language_ids]).paginate( :page => page, :per_page => 16, :include => :language )
+      Source.includes(:language).visible.where(['user_id IN ( ? ) OR language_id IN ( ? )', user_ids, language_ids]).paginate( :page => page, :per_page => 16 )
     end
   end
 

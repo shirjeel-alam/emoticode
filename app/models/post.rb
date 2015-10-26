@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  category_id :integer
+#  title       :string(255)
+#  name        :string(255)
+#  body        :text(65535)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category

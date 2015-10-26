@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  eventable_type :integer
+#  eventable_id   :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  data           :text(65535)
+#
+
 class Event < ActiveRecord::Base
   belongs_to :owner, :class_name => 'User', :foreign_key => :user_id
 

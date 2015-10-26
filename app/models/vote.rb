@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: votes
+#
+#  id         :integer          not null, primary key
+#  rating_id  :integer          not null
+#  user_id    :integer
+#  value      :float(24)        not null
+#  created_at :integer          not null
+#
+
 class Vote < ActiveRecord::Base 
   belongs_to :rating
   belongs_to :user

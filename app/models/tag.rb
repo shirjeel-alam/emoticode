@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: tags
+#
+#  id            :integer          not null, primary key
+#  name          :string(255)      not null
+#  value         :text(65535)      not null
+#  sources_count :integer          default(0)
+#
+
 class Tag < ActiveRecord::Base 
   has_many :links
   has_many :sources, :through => :links

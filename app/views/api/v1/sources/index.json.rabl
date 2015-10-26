@@ -12,6 +12,6 @@ child(@sources) do
 end
 
 child(:pager) do
-  node(:pages) { |m| Source.public.count.to_f / @per_page }
+  node(:pages) { |m| Source.visible.count.to_f / @per_page }
   node(:per_page) { |m| @per_page }
 end

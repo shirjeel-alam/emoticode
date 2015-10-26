@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: ratings
+#
+#  id            :integer          not null, primary key
+#  rateable_type :integer          not null
+#  rateable_id   :integer          not null
+#  votes         :integer          default(0)
+#  average       :float(24)        default(0.0)
+#  created_at    :integer          not null
+#
+
 class Rating < ActiveRecord::Base
   RATEABLE_TYPES = {
     :source  => 1,

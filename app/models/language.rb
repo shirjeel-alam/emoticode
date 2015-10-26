@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: languages
+#
+#  id            :integer          not null, primary key
+#  title         :string(255)      not null
+#  name          :string(255)      not null
+#  syntax        :string(255)      not null
+#  sources_count :integer          default(0)
+#
+
 class Language < ActiveRecord::Base
   has_many :sources
   has_many :tags, :through => :links
