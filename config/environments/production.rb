@@ -85,7 +85,7 @@ EmoticodeRails::Application.configure do
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'noreplay@emoticode.net'}
+  config.action_mailer.default_options = { from: 'noreplay@emoticode.net' }
 
   # disable view logging
   config.action_view.logger = nil
@@ -93,5 +93,4 @@ EmoticodeRails::Application.configure do
   ActiveSupport::Cache::Store.logger = nil
 
   config.cache_store = :gibson_store, 'emoticode', {}
-  
 end

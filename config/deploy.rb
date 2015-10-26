@@ -2,7 +2,7 @@
 require "rvm/capistrano"
 require 'capistrano-unicorn'
 
-set :rvm_ruby_string, '2.0.0'
+set :rvm_ruby_string, :local
 set :rvm_type, :user  # Don't use system-wide RVM
  
 server "emoticode.net", :web, :app, :db, primary: true
