@@ -27,6 +27,7 @@ gem 'omniauth-facebook', '1.4.1'                                  # facebook con
 gem 'omniauth-github'                                             # github connect
 
 gem 'dalli'                                                       # memcache client
+gem 'newrelic_rpm'                                                # new relic
 
 # social features
 # gem 'koala', '~> 1.7.0rc1'
