@@ -22,7 +22,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'responders'
 
 gem 'omniauth'                                                    # social auth
-gem 'omniauth-facebook', '1.4.1'                                  # facebook connect
+gem 'omniauth-facebook'                                           # facebook connect
 gem 'omniauth-github'                                             # github connect
 
 gem 'dalli'                                                       # memcache client

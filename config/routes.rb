@@ -1,17 +1,12 @@
 EmoticodeRails::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root 'home#index'
-
+  
   namespace :api do
     namespace :v1 do
-      
       controller :sources do
         post 'sources/new' => :create, as: :create_source
       end
-      # resources :languages, :only => [ :index, :show ]
-      # resources :sources
-      # resources :users,     :only => [ :index, :show ]
     end
   end
 
@@ -128,4 +123,5 @@ EmoticodeRails::Application.routes.draw do
     get 'embed/:language_name/:source_name.html' => :embed, as: :source_embed,         constraints: { language_name: Patterns::ROUTE_PATTERN, source_name: Patterns::ROUTE_PATTERN }    
   end
 
+  root 'home#index'
 end
