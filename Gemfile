@@ -45,13 +45,6 @@ gem 'twitter', '~> 4.8.1'
 # server side
 # gem 'unicorn'
 
-# deploy
-gem 'capistrano-rails'
-gem 'capistrano-rails-db'
-gem 'capistrano-passenger'
-gem 'capistrano-safe-deploy-to'
-gem 'capistrano-memcached'
-
 # gem 'capistrano'
 # gem 'rvm-capistrano'
 # gem 'capistrano-unicorn', require: false
@@ -60,6 +53,14 @@ group :development do
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'letter_opener'
+
+  # deploy
+  gem 'capistrano-rails'
+  gem 'capistrano-rails-db'
+  gem 'capistrano-passenger'
+  gem 'capistrano-safe-deploy-to'
+  gem 'capistrano-memcached'
+  gem 'capistrano-rails-console'
 end
 
 group :development, :test do

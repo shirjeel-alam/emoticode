@@ -82,6 +82,8 @@ GEM
     capistrano-rails (1.1.5)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rails-console (1.0.0)
+      capistrano (>= 3.1.0, < 4.0.0)
     capistrano-rails-db (0.0.2)
       capistrano-rails (~> 1.1)
     capistrano-safe-deploy-to (1.1.1)
@@ -302,6 +304,7 @@ DEPENDENCIES
   capistrano-memcached
   capistrano-passenger
   capistrano-rails
+  capistrano-rails-console
   capistrano-rails-db
   capistrano-safe-deploy-to
   charon
