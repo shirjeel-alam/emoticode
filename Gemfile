@@ -42,6 +42,12 @@ gem 'twitter', '~> 4.8.1'
 # gem 'unicorn'
 
 # deploy
+gem 'capistrano-rails'
+gem 'capistrano-rails-db'
+gem 'capistrano-passenger'
+gem 'capistrano-safe-deploy-to'
+gem 'capistrano-memcached'
+
 # gem 'capistrano'
 # gem 'rvm-capistrano'
 # gem 'capistrano-unicorn', require: false
