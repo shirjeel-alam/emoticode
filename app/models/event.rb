@@ -95,7 +95,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.new_login(user)
-    previous = Event.find_last_by_user_id_and_eventable_type( user.id, TYPES[:logged_in] )
+    previous = Event.where(user_id: user.id, eventable_type: TYPES[:logged_in]).last
     # save only login events for a given user every 8 hours
     if previous.nil? or ( Time.now - previous.created_at ) >= 28800
       Event.create({
