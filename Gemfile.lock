@@ -1,9 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    RubyInline (3.12.4)
-      ZenTest (~> 4.3)
-    ZenTest (4.11.0)
     actionmailer (4.2.4)
       actionpack (= 4.2.4)
       actionview (= 4.2.4)
@@ -86,11 +83,6 @@ GEM
     execjs (2.6.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
-    fastimage (1.7.0)
-      addressable (~> 2.3, >= 2.3.5)
-    fastimage_resize (2.0.3)
-      RubyInline (>= 3.8.2)
-      fastimage (>= 1.2.9)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
@@ -261,7 +253,6 @@ DEPENDENCIES
   charon
   coffee-rails
   dalli
-  fastimage_resize
   htmlentities
   impressionist
   jbuilder

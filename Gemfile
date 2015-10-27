@@ -10,7 +10,7 @@ gem 'jbuilder'                                                    # json api
 gem 'albino'                                                      # syntax highlight
 gem 'nokogiri'                                                    # syntax -> html
 gem 'will_paginate'                                               # pagination
-gem 'fastimage_resize'                                            # avatar resizing
+# gem 'fastimage_resize'                                            # avatar resizing
 gem 'whenever', require: false                                    # cron jobs with ease
 gem 'thinking-sphinx'                                             # sphinx library
 gem 'charon'                                                      # check for spammers
