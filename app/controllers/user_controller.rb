@@ -12,6 +12,7 @@ class UserController < ApplicationController
     @user = User.new( user_params )
 
     valid_captcha = verify_recaptcha( :model => @user, :timeout => 15 )
+    valid_captcha = true if Rails.env.development?
 
     # valid catpcha but bot detected
     if valid_captcha and ( params[:antibot].nil? or params[:antibot].empty? == false )

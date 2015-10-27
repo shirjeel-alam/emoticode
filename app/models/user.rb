@@ -226,7 +226,7 @@ class User < ActiveRecord::Base
     if profile.avatar?
       "/avatars/#{id}.png"
     else
-      "/avatars/default.png"
+      "icon-user-default.png"
     end
   end
 

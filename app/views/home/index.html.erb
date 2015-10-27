@@ -6,12 +6,12 @@
       <center>
         Wanna give it a try?
         <span class="follow">
-          <% user = User.find_by_username 'evilsocket' %>
-          <% if @current_user.follows?(user) %>
-            <%= link_to "Following #{user.username}", unfollow_path( type: Follow::TYPES[:user], id: user.id, format: :js ), :'data-subject' => user.username, class: "follow-#{Follow::TYPES[:user]}-#{user.id} following", method: :post, remote: true  %>
-          <% else %>
-            <%= link_to "Follow #{user.username}", follow_path( type: Follow::TYPES[:user], id: user.id, format: :js ), :'data-subject' => user.username, class: "follow-#{Follow::TYPES[:user]}-#{user.id} follow", method: :post, remote: true  %>
-          <% end %>
+          <%# user = User.find_by_username 'evilsocket' %>
+          <%# if @current_user.follows?(user) %>
+            <%#= link_to "Following #{user.username}", unfollow_path( type: Follow::TYPES[:user], id: user.id, format: :js ), :'data-subject' => user.username, class: "follow-#{Follow::TYPES[:user]}-#{user.id} following", method: :post, remote: true  %>
+          <%# else %>
+            <%#= link_to "Follow #{user.username}", follow_path( type: Follow::TYPES[:user], id: user.id, format: :js ), :'data-subject' => user.username, class: "follow-#{Follow::TYPES[:user]}-#{user.id} follow", method: :post, remote: true  %>
+          <%# end %>
         </span> and <%= link_to 'refresh', root_url %> this page, you can edit your followings anytime in your <%= link_to( 'profile', user_following_path(username:@current_user.username) ) %> page.
     </center> 
     </div>
