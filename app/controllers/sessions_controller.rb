@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
       render :template => 'sessions/new', :status => :unauthorized
     else
       Event.new_login(@user)
-      sign_in(@user)
+      sign_in_user(@user)
 
       response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
       response.headers["Pragma"] = "no-cache"

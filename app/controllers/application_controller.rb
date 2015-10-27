@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     @languages       = Language.cached
     @blog_categories = Category.cached
     
-    @users           = User.confirmed.order('created_at DESC').limit(20)
+    @users_latest    = User.confirmed.order('created_at DESC').limit(20)
     @events          = Event.order('created_at DESC').limit(15)
     @show_joinus     = false
     @current_user    = session[:id].nil? ? nil : User.find_by_id( session[:id] )
@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
     @languages.select { |lang| names.include? lang.name.to_sym }
   end
 
-  def sign_in(user)
+  def sign_in_user(user)
     @current_user = user
     @current_user.last_login = Time.now
     @current_user.last_login_ip = request.remote_ip
@@ -76,7 +76,7 @@ class ApplicationController < ActionController::Base
     session[:id] = @current_user.id
   end
 
-  def sign_out
+  def sign_out_user
     @current_user = nil
     session.delete(:id)
   end

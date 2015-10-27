@@ -6,7 +6,7 @@
 
 <% cache( "latest_users_view", skip_digest: true ) do %>
 <ul class="avatars">
-  <% @users.each do |user| %>
+  <% @users_latest.each do |user| %>
   <li>
     <a href="<%= user_profile_path(username:user.username) %>" title="<%= user.username %> profile">
       <%= avatar_tag user %>

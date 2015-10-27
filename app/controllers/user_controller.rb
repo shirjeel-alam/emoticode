@@ -38,7 +38,7 @@ class UserController < ApplicationController
     if @user.nil?
       flash[:alert] = 'Invalid confirmation token.'
     else
-      sign_in(@user)
+      sign_in_user(@user)
     end
 
     # TODO: Set show_intro cookie

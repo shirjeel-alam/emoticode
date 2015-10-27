@@ -27,7 +27,7 @@ class PasswordsController < ApplicationController
     render_404 unless @user
 
     if @user.update_attributes( password_params )
-      sign_in(@user)
+      sign_in_user(@user)
       redirect_to user_profile_url(:username => @user.username)
     else
       flash[:error] = @user.errors.full_messages.first

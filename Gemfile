@@ -29,6 +29,9 @@ gem 'omniauth-github'                                             # github conne
 gem 'dalli'                                                       # memcache client
 gem 'newrelic_rpm'                                                # new relic
 
+gem 'devise'
+gem 'activeadmin', '1.0.0.pre2'                                   # admin interface
+
 # social features
 # gem 'koala', '~> 1.7.0rc1'
 gem 'koala', '~> 2.2'
@@ -52,9 +55,6 @@ gem 'capistrano-memcached'
 # gem 'capistrano'
 # gem 'rvm-capistrano'
 # gem 'capistrano-unicorn', require: false
-
-# newrelic
-gem 'newrelic_rpm'
 
 group :development do
   gem 'quiet_assets'
