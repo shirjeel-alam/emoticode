@@ -63,6 +63,22 @@ ActiveRecord::Schema.define(version: 20151027190248) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "commentable_type", limit: 4,     null: false
+    t.integer "commentable_id",   limit: 4,     null: false
+    t.integer "parent_id",        limit: 4
+    t.integer "user_id",          limit: 4
+    t.text    "content",          limit: 65535, null: false
+    t.integer "created_at",       limit: 4,     null: false
+  end
+
+  add_index "comments", ["commentable_id"], name: "item_id", using: :btree
+  add_index "comments", ["commentable_type", "commentable_id"], name: "object_type", using: :btree
+  add_index "comments", ["created_at"], name: "created_at", using: :btree
+  add_index "comments", ["parent_id"], name: "parent_id", using: :btree
+  add_index "comments", ["parent_id"], name: "parent_id_2", using: :btree
+  add_index "comments", ["user_id"], name: "user_id", using: :btree
+
   create_table "database_connections", force: :cascade do |t|
     t.string  "adapter",  limit: 255, null: false
     t.string  "database", limit: 255, null: false

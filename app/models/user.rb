@@ -113,10 +113,11 @@ class User < ActiveRecord::Base
       # new incoming user ^_^
       if user.nil?
         # we need the nickname now
-        if info['nickname']
+        tmp_nickname = info['nickname'] || info['name']
+        if tmp_nickname
           # generate a temporary password
           tmp_password = self.get_random_password
-          nickname     = self.get_unique_nickname info['nickname']
+          nickname     = self.get_unique_nickname tmp_nickname
 
           user = User.create({
             username: nickname,
