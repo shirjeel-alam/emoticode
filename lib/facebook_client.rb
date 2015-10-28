@@ -13,7 +13,7 @@ class FacebookClient
 
   def followers
     Rails.cache.fetch "FacebookClient#followers", :expire => 60.minutes do
-      data = open("http://api.facebook.com/method/fql.query?format=json&query=select+fan_count+from+page+where+page_id%3D#{@config['page_id']}").read    
+      data = open("http://api.facebook.com/method/fql.query?format=json&query=select+fan_count+from+page+where+page_id=#{@config['page_id']}").read    
       obj = JSON.parse(data)[0]
       obj["fan_count"].to_i
     end

@@ -36,20 +36,11 @@ class ApplicationController < ActionController::Base
     #   cookies[:joinus] = { :value => "1", :expires => Time.now + 604800 }
     end
 
-    begin
-      @followers = {
-        :twitter  => TwitterClient.new.followers,
-        :facebook => FacebookClient.new.followers,
-        :gplus    => GooglePlusClient.new.followers
-      }
-    rescue
-      @followers = {
-        :twitter  => 580,
-        :facebook => 320,
-        :gplus    => 514
-      }
-    end
-
+    @followers = {
+      :twitter  => TwitterClient.new.followers,
+      :facebook => FacebookClient.new.followers,
+      :gplus    => GooglePlusClient.new.followers
+    }
   end
 
   def coerce_page_number
