@@ -92,5 +92,5 @@ EmoticodeRails::Application.configure do
   # and cache store too
   ActiveSupport::Cache::Store.logger = nil
 
-  config.cache_store = :dalli_store
+  config.cache_store = :null_store
 end
