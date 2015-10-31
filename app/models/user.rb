@@ -258,6 +258,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def resize_image(file, resize="50x50", output=Rails.root.join('public', 'avatars', "#{id}.png").to_s)
+    image = MiniMagick::Image.open(file)
+    image.resize resize
+    image.format "png"
+    image.write output
+  end
+
+  def set_avatar_file(file)
+    resize_image(file.path)
+    profile.avatar = 1
+  end
+
   private
 
   def self.get_unique_nickname(base)
@@ -285,14 +297,6 @@ class User < ActiveRecord::Base
     unless self.password.nil?
       self.password_hash = Digest::MD5.hexdigest( self.salt + self.password )
     end
-  end
-
-  def set_avatar_file(file)
-    path = File.join Dir.pwd, "public/avatars/#{id}.png"
-
-    FastImage.resize( file, 50, 50, :outfile => path )
-
-    profile.avatar = 1
   end
 
   def update_avatar
@@ -337,11 +341,7 @@ class User < ActiveRecord::Base
     # if user still has no avatar, fetch it from auth info if available
     if profile.avatar == 0 && auth['info']['image']
       begin
-        path = File.join Dir.pwd, "public/avatars/#{user.id}.png"
-
-        FastImage.resize( auth['info']['image'], 50, 50, :outfile => path )
-
-        profile.avatar = 1
+        user.set_avatar_file(auth['info']['image'])
       rescue Exception => e
         self.logger.info "[USER] Setting avatar failed: #{e.message}"
       end

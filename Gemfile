@@ -60,4 +60,5 @@ end
 
 # gem 'roadie' UNUSED GEM. If put back use 2.4.2
 
-gem 'fastimage_resize'                                            # avatar resizing
+# gem 'fastimage_resize'                                            # avatar resizing
+gem 'mini_magick'
