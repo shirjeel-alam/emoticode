@@ -25,7 +25,7 @@ gem 'omniauth'                                                    # social auth
 gem 'omniauth-facebook'                                           # facebook connect
 gem 'omniauth-github'                                             # github connect
 
-# gem 'dalli'                                                       # memcache client
+gem 'dalli'                                                       # memcache client
 gem 'newrelic_rpm'                                                # new relic
 
 gem 'devise'
