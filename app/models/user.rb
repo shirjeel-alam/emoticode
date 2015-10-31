@@ -303,7 +303,8 @@ class User < ActiveRecord::Base
     unless self.avatar_upload.nil?
       begin
         set_avatar_file avatar_upload.tempfile.path
-      rescue
+      rescue Exception => e
+        self.logger.info "[USER] Setting avatar failed: #{e.message}"
         self.errors.add( :avatar_upload, " not a valid image file." )
         false
       end
