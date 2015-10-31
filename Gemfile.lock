@@ -99,6 +99,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
+    dalli (2.7.4)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -307,6 +308,7 @@ DEPENDENCIES
   capistrano-safe-deploy-to
   charon
   coffee-rails
+  dalli
   devise
   htmlentities
   impressionist
