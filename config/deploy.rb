@@ -15,6 +15,16 @@ set :ssh_options, {
   forward_agent: true
 }
 
+namespace :memcached do
+  desc "Flushes memcached local instance"
+  task :flush do
+    on roles(:app) do
+      execute "cd #{current_path}; RAILS_ENV=#{fetch(:rails_env).to_s} rake memcached:flush"
+    end
+  end
+end
+
 namespace :deploy do
+  after :updated, 'memcached:flush'
   after :finishing, 'deploy:cleanup'
 end
