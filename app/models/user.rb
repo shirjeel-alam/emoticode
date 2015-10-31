@@ -266,7 +266,7 @@ class User < ActiveRecord::Base
   end
 
   def set_avatar_file(file)
-    resize_image(file.path)
+    resize_image(file)
     profile.avatar = 1
   end
 
@@ -302,7 +302,7 @@ class User < ActiveRecord::Base
   def update_avatar
     unless self.avatar_upload.nil?
       begin
-        set_avatar_file avatar_upload.tempfile
+        set_avatar_file avatar_upload.tempfile.path
       rescue
         self.errors.add( :avatar_upload, " not a valid image file." )
         false
