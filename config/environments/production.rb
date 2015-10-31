@@ -93,6 +93,4 @@ EmoticodeRails::Application.configure do
   ActiveSupport::Cache::Store.logger = nil
 
   config.cache_store = :dalli_store
-
-  ENV['INLINEDIR'] = '/var/www/emoticode/shared/tmp/ruby_inline'
 end
