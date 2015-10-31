@@ -263,6 +263,7 @@ class User < ActiveRecord::Base
     image.resize resize
     image.format "png"
     image.write output
+    File.chmod(0644, output)
   end
 
   def set_avatar_file(file)
