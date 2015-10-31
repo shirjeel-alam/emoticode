@@ -22,7 +22,7 @@
     <div class="author">
       <div class="avatar">
         <a href="<%= user_profile_url(username:@source.user.username) %>" title="<%= @source.user.username %> profile" class="avatar">
-          <%= image_tag image_url(@source.user.avatar), :height => '30', :width => '30', :alt => "#{@source.user.username} avatar.", :class => 'imgavatar', :onerror => "this.src='#{image_url("default.png")}';" %>
+          <%= image_tag image_url(@source.user.avatar), :height => '30', :width => '30', :alt => "#{@source.user.username} avatar.", :class => 'imgavatar', :onerror => "this.onerror=null;this.src='#{image_url("default.png")}';" %>
           <br/>
           <%= truncate( @source.user.username, :length => 20 ) %>
         </a>

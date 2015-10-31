@@ -6,7 +6,7 @@
       %>
         <div class="avatar">
           <a href="<%= user_profile_path(username:o.username) %>" title="<%= o.username %> profile" class="avatar">
-            <%= image_tag image_url(o.avatar), :height => '40', :width => '40', :alt => "#{o.username} avatar.", :class => 'imgavatar', :onerror => "this.src='#{image_url("default.png")}';" %>
+            <%= image_tag image_url(o.avatar), :height => '40', :width => '40', :alt => "#{o.username} avatar.", :class => 'imgavatar', :onerror => "this.onerror=null;this.src='#{image_url("default.png")}';" %>
           </a>
           <a href="<%= user_profile_path(username:o.username) %>" title="<%= o.username %> profile" class="username">
             <%= truncate( o.username, :length => 17 ) %>

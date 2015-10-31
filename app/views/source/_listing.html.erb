@@ -11,7 +11,7 @@
     <% cache( "source_#{source.id}_author_footer", :expires_in => 1.hour ) do %>
       <div class="avatar">
         <a href="<%= user_profile_path(username:source.user.username) %>" title="<%= source.user.username %> profile" class="avatar">
-          <%= image_tag image_url(source.user.avatar), :height => '40', :width => '40', :alt => "#{source.user.username} avatar.", :class => 'imgavatar', :onerror => "this.src='#{image_url("default.png")}';" %>
+          <%= image_tag image_url(source.user.avatar), :height => '40', :width => '40', :alt => "#{source.user.username} avatar.", :class => 'imgavatar', :onerror => "this.onerror=null;this.src='#{image_url("default.png")}';" %>
         </a>
         <a href="<%= user_profile_path(username:source.user.username) %>" title="<%= source.user.username %> profile" class="username">
           <%= truncate( source.user.username, :length => 20 ) %>

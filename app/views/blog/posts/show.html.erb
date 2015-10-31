@@ -4,7 +4,7 @@
       <h1><%= @post.title %></h1>
       <div class="meta">
         <a href="<%= user_profile_path(username:@post.user.username) %>" title="<%= @post.user.username %> profile" class="avatar">
-          <%= image_tag image_url(@post.user.avatar), :height => '30', :width => '30', :alt => "#{@post.user.username} avatar.", :class => 'imgavatar', :onerror => "this.src='#{image_url("default.png")}';" %>
+          <%= image_tag image_url(@post.user.avatar), :height => '30', :width => '30', :alt => "#{@post.user.username} avatar.", :class => 'imgavatar', :onerror => "this.onerror=null;this.src='#{image_url("default.png")}';" %>
         </a>
         <small>Posted <%= time_ago_in_words @post.created_at %> ago inside the <%= link_to @post.category.title, blog_archive_path(:category => @post.category.name ) %> category.</small><br/>
         <small>Written by <%= link_to @post.user.username, user_profile_path(username:@post.user.username) %></small>
