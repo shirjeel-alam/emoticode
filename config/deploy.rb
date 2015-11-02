@@ -25,6 +25,9 @@ namespace :memcached do
 end
 
 namespace :deploy do
+  before :starting, 'thinking_sphinx:stop'
   after :updated, 'memcached:flush'
   after :finishing, 'deploy:cleanup'
+  after :finishing, 'thinking_sphinx:index'
+  after :finishing, 'thinking_sphinx:start'
 end
