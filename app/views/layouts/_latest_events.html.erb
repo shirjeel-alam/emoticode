@@ -3,7 +3,7 @@
     <h3>Latest Events</h3>
   </div>
   <ul class="events">
-    <%= render :partial => "events/event", :collection => @events, :as => 'event' %>
+    <%= render :partial => "events/event", :collection => @events_latest, :as => 'event' %>
   </ul>
   <br style="clear:both"/>
 <% end %>

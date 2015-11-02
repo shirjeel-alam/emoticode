@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     @blog_categories = Category.cached
     
     @users_latest    = User.confirmed.order('created_at DESC').limit(20)
-    @events          = Event.order('created_at DESC').limit(15)
+    @events_latest   = Event.order('created_at DESC').limit(15)
     @show_joinus     = false
     @current_user    = session[:id].nil? ? nil : User.find_by_id( session[:id] )
 
