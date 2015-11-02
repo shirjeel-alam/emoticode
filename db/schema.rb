@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027190248) do
+ActiveRecord::Schema.define(version: 20151102120735) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 20151027190248) do
   end
 
   add_index "links", ["source_id", "tag_id"], name: "source_id", using: :btree
+  add_index "links", ["source_id"], name: "index_links_on_source_id", using: :btree
   add_index "links", ["tag_id"], name: "entity_value_id", using: :btree
 
   create_table "posts", force: :cascade do |t|

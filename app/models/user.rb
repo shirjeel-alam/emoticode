@@ -19,13 +19,13 @@
 class User < ActiveRecord::Base
   scope :latest, -> { order('created_at DESC') }
 
-  has_many :posts
-  has_many :sources
-  has_many :favorites
-  has_many :authorizations
-  has_many :events
-  has_one  :profile
-  has_many :follows
+  has_many :posts, dependent: :destroy
+  has_many :sources, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :authorizations, dependent: :destroy
+  has_many :events, dependent: :destroy
+  has_one  :profile, dependent: :destroy
+  has_many :follows, dependent: :destroy
 
   LEVELS   = { :admin => 1,
                :editor => 2,

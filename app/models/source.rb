@@ -23,7 +23,7 @@ class Source < ActiveRecord::Base
 
   belongs_to :language, :counter_cache => true
   belongs_to :user
-  has_many   :links
+  has_many   :links, dependent: :destroy
   has_many   :tags, :through => :links
   has_many   :comments, -> { where :commentable_type => Comment::COMMENTABLE_TYPES[:source] }, :foreign_key => :commentable_id
   has_many   :favorites
