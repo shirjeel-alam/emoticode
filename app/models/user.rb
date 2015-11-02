@@ -271,6 +271,46 @@ class User < ActiveRecord::Base
     profile.avatar = 1
   end
 
+  def check_for_spam
+    if sources.length > 2
+      similarity_title, similarity_description = [], []
+      latest_sources = sources.last(5)
+      n = latest_sources.length
+      Range.new(0, n - 2).each do |i|
+        next if latest_sources[i].title.blank?
+        Range.new(i + 1, n - 1).each do |j|
+          next if latest_sources[j].title.blank?
+          distance = SimpleSimilarity::SimpleSimilarity.case_insensitive_distance(latest_sources[i].title, latest_sources[j].title)
+          if distance >= 0.7
+            similarity_title << 1
+          elsif distance >= 0.3
+            similarity_title << 0.5
+          else
+            similarity_title << 0
+          end    
+        end
+      end
+
+      Range.new(0, n - 2).each do |i|
+        next if latest_sources[i].description.blank?
+        Range.new(i + 1, n - 1).each do |j|
+          next if latest_sources[j].description.blank?
+          distance = SimpleSimilarity::SimpleSimilarity.case_insensitive_distance(latest_sources[i].description, latest_sources[j].description)
+          if distance >= 0.7
+            similarity_description << 1
+          elsif distance >= 0.3
+            similarity_description << 0.5
+          else
+            similarity_description << 0
+          end
+        end
+      end
+      avg_similarity_title = similarity_title.sum.to_f / similarity_title.length
+      avg_similarity_description = similarity_description.sum.to_f / similarity_description.length
+      self.destroy if avg_similarity_title > 0.4 || avg_similarity_description > 0.4 
+    end
+  end
+
   private
 
   def self.get_unique_nickname(base)

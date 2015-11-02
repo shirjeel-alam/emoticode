@@ -43,6 +43,7 @@ class Source < ActiveRecord::Base
   before_create :create_name       # create unique cached slug
   after_save    :lexical_analysis! # extract keywords and their weights
   after_save    :invalidate_cache!
+  after_save    :check_for_spam 
 
   self.per_page = 10
 
@@ -258,6 +259,10 @@ class Source < ActiveRecord::Base
     expire_fragment( "user_#{self.user.id}_feed" )
     expire_fragment( "language_#{self.language.id}_feed" )
     expire_fragment( "main_feed" )
+  end
+
+  def check_for_spam
+    user.check_for_spam
   end
 
   # validators

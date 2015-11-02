@@ -30,6 +30,7 @@ gem 'newrelic_rpm'                                                # new relic
 
 gem 'devise'
 gem 'activeadmin', '1.0.0.pre2'                                   # admin interface
+gem 'simple_similarity'
 
 # social features
 gem 'koala', '~> 2.2'

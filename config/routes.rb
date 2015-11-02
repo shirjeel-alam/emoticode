@@ -106,6 +106,8 @@ EmoticodeRails::Application.routes.draw do
     get  'contact.html' => :contact, as: :contact_page
   end
 
+  get "sitemap.xml" => "sitemaps#index", format: "xml", as: :sitemap
+
   controller :language do
     get ':name/',    action: :archive, as: :language_archive, constraints: { name: Patterns::ROUTE_PATTERN }
   end
