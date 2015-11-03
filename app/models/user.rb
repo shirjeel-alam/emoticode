@@ -345,7 +345,7 @@ class User < ActiveRecord::Base
       begin
         set_avatar_file avatar_upload.tempfile.path
       rescue Exception => e
-        # self.errors.add(:avatar_upload, e.message)
+        self.errors.add(:avatar_upload, e.message)
         false
       end
     end
