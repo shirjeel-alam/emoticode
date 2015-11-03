@@ -24,7 +24,7 @@ class FollowsController < ApplicationController
         }
       end
     rescue Exception => e
-      logger = Logger.new(Rails.root.join('log', 'emoticode.log'))
+      logger = Logger.new(Rails.root.join('log', 'emoticode.log').to_s)
       logger.info e
       redirect_to '/' and return
     end
@@ -40,7 +40,7 @@ class FollowsController < ApplicationController
         } 
     end
     rescue Exception => e
-      logger = Logger.new(Rails.root.join('log', 'emoticode.log'))
+      logger = Logger.new(Rails.root.join('log', 'emoticode.log').to_s)
       logger.info e
       redirect_to '/' and return
     end
