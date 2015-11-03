@@ -38,7 +38,11 @@ class SessionsController < ApplicationController
       response.headers["Pragma"] = "no-cache"
       response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
 
-      redirect_to request.referer || root_url
+      if request.host == URI(request.referer).host
+        redirect_to request.referer
+      else
+        redirect_to root_url
+      end
     end
   end
 end
