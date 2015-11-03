@@ -24,11 +24,11 @@
         </h3>
       <% else %>
         <h3 class="tab">
-          <%= link_to 'Trending', root_path, :class => current_page?(root_url) ? 'current' : '' %>
+          <%= link_to 'Trending', trending_snippets_path, :class => current_page?(trending_snippets_path) ? 'current' : '' %>
         </h3>
       <% end %>
       <h3 class="tab">
-        <%= link_to 'Recent', recent_snippets_path, :class => current_page?(recent_snippets_url) ? 'current' : '' %>
+        <%= link_to 'Recent', root_path, :class => current_page?(root_path) ? 'current' : '' %>
       </h3>
     </div>
     <div class="small-column">

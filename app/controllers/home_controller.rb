@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     else
       pager_params = { :page => params[:page], :per_page => 16 }
 
-      @sources = Source.includes(:language).visible.by_trend.newer_than( 2.months.ago.to_i ).paginate pager_params
+      @sources = Source.includes(:language).visible.paginate pager_params
       @cloud   = Tag.cloud.shuffle!
     end
   end
