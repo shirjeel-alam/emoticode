@@ -1,0 +1,10 @@
+<% opts = {client: Rails.application.config.secrets['Google']['adsense_client']}.merge(opts) %>
+
+<%= javascript_tag do %>
+  google_ad_client = '<%= opts[:client] %>';
+  google_ad_slot   = '<%= opts[:slot] %>';
+  google_ad_width  = '<%= opts[:width] %>';
+  google_ad_height = '<%= opts[:height] %>';
+<% end %>
+
+<%= javascript_include_tag("http://pagead2.googlesyndication.com/pagead/show_ads.js") %>

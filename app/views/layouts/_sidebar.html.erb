@@ -1,9 +1,8 @@
 <% is_source_defined = defined?(source) %>
 <div id="sidebar">
+  <%= render 'ads/sidebar_top' %>
   <% if is_source_defined %>
     <%= render :partial => 'source/sidebox', :locals => { source: source } %>   
-    
-    <%= render :partial => "adv/criteo300x250" %>    
   <% end %>
 
   <% if [ 'language', 'source' ].include? controller.controller_name %>
@@ -38,5 +37,6 @@
     </div>
     <% end %>
   <% end %>
+  <%= render 'ads/sidebar_bottom' %>
 </div>
 <br style="clear:both"/>

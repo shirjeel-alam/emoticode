@@ -27,6 +27,7 @@
 <% end %>
 
 <div id="wrapper">
+  <%= render 'ads/main' %>
   <%= yield %>
 
   <% if params[:show_stats] == "1" and signed_in? and @current_user.is_admin? %>
