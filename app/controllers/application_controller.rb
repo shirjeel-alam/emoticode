@@ -26,14 +26,12 @@ class ApplicationController < ActionController::Base
     
     @users_latest    = User.confirmed.order('created_at DESC').limit(20)
     @events_latest   = Event.order('created_at DESC').limit(15)
-    @show_joinus     = false
     @current_user    = session[:id].nil? ? nil : User.find_by_id( session[:id] )
 
-    if @current_user.nil? == false
-    # show modal only for not logged users
-    # elsif cookies[:joinus].nil?
-    #   @show_joinus = true
-    #   cookies[:joinus] = { :value => "1", :expires => Time.now + 604800 }
+    @show_joinus     = false
+    if @current_user.blank? && session[:joinus].blank?
+      session[:joinus] = true
+      @show_joinus = true
     end
 
     @followers = {
