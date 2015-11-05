@@ -8,7 +8,7 @@
 #  website           :string(255)
 #  gplus             :string(255)
 #  avatar            :integer          default(0), not null
-#  weekly_newsletter :boolean          default(TRUE)
+#  weekly_newsletter :boolean          default(FALSE)
 #  follow_mail       :boolean          default(TRUE)
 #
 

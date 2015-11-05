@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102120735) do
+ActiveRecord::Schema.define(version: 20151105043137) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -181,12 +181,12 @@ ActiveRecord::Schema.define(version: 20151102120735) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "user_id",           limit: 4,                       null: false
+    t.integer "user_id",           limit: 4,                        null: false
     t.text    "aboutme",           limit: 16777215
     t.string  "website",           limit: 255
     t.string  "gplus",             limit: 255
-    t.integer "avatar",            limit: 1,        default: 0,    null: false
-    t.boolean "weekly_newsletter",                  default: true
+    t.integer "avatar",            limit: 1,        default: 0,     null: false
+    t.boolean "weekly_newsletter",                  default: false
     t.boolean "follow_mail",                        default: true
   end
 

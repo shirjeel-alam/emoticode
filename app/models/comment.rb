@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id               :integer          not null, primary key
+#  commentable_type :integer          not null
+#  commentable_id   :integer          not null
+#  parent_id        :integer
+#  user_id          :integer
+#  content          :text(65535)      not null
+#  created_at       :integer          not null
+#
+
 class Comment < ActiveRecord::Base
   COMMENTABLE_TYPES = {
     :source  => 1,
