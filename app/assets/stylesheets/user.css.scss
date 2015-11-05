@@ -2,23 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #wrapper {
-    #register {
-        width: 60%;
-        margin: 0 auto;
-        margin-top: 50px;
-        padding: 1px 20px 20px 20px;
-        
-        form {
-            margin-top: 15px;
-            input {
-                width: 100%;
-                font-size: 20px;
-            }
-        }
-
-        a {
-            display: block;
-        }
+  #register {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 1px 20px 20px 20px;
+    
+    form {
+      margin-top: 15px;
+      input {
+        width: 100%;
+        font-size: 20px;
+      }
     }
+
+    a {
+      display: block;
+    }
+  }
 }
 
+#joinus {
+  height: 565px;
+  width: 830px;
+  #wrapper {
+    #register {
+      margin: 0;
+    }
+  }
+}

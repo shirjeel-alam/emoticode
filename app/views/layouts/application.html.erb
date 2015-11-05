@@ -95,8 +95,8 @@
 <% end %>
 
 <% if @show_joinus %>
-  <%= modal_dialog 'joinus', 'Join Us!', :style => 'width:530px; height: 138px;' do %>
-    <center><h3>Click <%= link_to 'here', sign_up_path %> to create your profile</h3></center>
+  <%= modal_dialog 'joinus', 'Join Us!' do %>
+    <div id="wrapper"><%= render 'user/form' %></div>
     <!-- <table width="100%" cellpadding="0" cellspacing="0">
       <tr>
         <td width="50%">
@@ -110,7 +110,7 @@
         </td>
       </tr>
     </table> -->
-    <script>$(function(){setTimeout(function(){$("#joinus").modal()},1e4)});</script>
+    <script>$(function(){setTimeout(function(){$("#joinus").modal()},15000)});</script>
   <% end %>
 <% end %>
 
