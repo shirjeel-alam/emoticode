@@ -10,7 +10,7 @@ class PasswordsController < ApplicationController
 
       raise RuntimeException unless valid_captcha = verify_recaptcha( :model => @user, :timeout => 15 )
 
-      UserMailer.password_reset_email( @user ).deliver
+      UserMailer.password_reset_email( @user ).deliver_now
     rescue
       flash[:error] = 'Invalid email address or captcha.'
       redirect_to new_passwords_url

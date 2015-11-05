@@ -9,8 +9,8 @@ class AlertMailer < ActionMailer::Base
     mail( subject: 'EmotiCODE Spammer Alert' )
   end
 
-  def test_mailer(to)
-    mail(to: to, subject: "Emoticode Test Mail")
+  def test_mailer(from, to)
+    mail(from: from, to: to, subject: "Emoticode Test Mail")
   end
 end
 

@@ -17,7 +17,7 @@ class FollowsController < ApplicationController
         if params[:type].to_i == Follow::TYPES[:user]
           followed = User.find( params[:id] )
           if followed.profile.follow_mail?
-            FollowMailer.follow( followed, @current_user ).deliver     
+            FollowMailer.follow( followed, @current_user ).deliver_now     
           end
         end
       }

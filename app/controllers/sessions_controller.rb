@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       @user, temporary_password = User.omniauth(omniauth)
       # this is a first time user, send him its temporary password
       unless @user.nil? or !@user.valid? or temporary_password.nil?
-        UserMailer.omniauth_confirmation_email( @user, omniauth['provider'], temporary_password ).deliver
+        UserMailer.omniauth_confirmation_email( @user, omniauth['provider'], temporary_password ).deliver_now
         flash[:alert] = 'A temporary password has been sent to your email address.'
       end
     else

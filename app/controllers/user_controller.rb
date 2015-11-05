@@ -16,13 +16,13 @@ class UserController < ApplicationController
 
     # valid catpcha but bot detected
     if valid_captcha and ( params[:antibot].nil? or params[:antibot].empty? == false )
-      # AlertMailer.spammer_alert_email( params, request ).deliver
+      # AlertMailer.spammer_alert_email( params, request ).deliver_now
       redirect_to root_url
     # valid captcha and valid user -> register
     elsif valid_captcha and @user.save
       Profile.create({ user: @user })
 
-      UserMailer.confirmation_email(@user, params[:user][:password] ).deliver
+      UserMailer.confirmation_email(@user, params[:user][:password] ).deliver_now
 
       flash[:alert] = 'A confirmation email has been sent to your email address.'
       redirect_to root_url

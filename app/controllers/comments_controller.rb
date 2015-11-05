@@ -12,9 +12,9 @@ class CommentsController < ApplicationController
 
           if @comment.commentable.user != @current_user
             if @comment.parent_id.nil?
-              UserMailer.comment_email( @current_user, @comment.commentable.user, @comment.commentable.url ).deliver
+              UserMailer.comment_email( @current_user, @comment.commentable.user, @comment.commentable.url ).deliver_now
             else
-              UserMailer.comment_reply_email( @current_user, @comment.commentable.user, @comment.commentable.url ).deliver
+              UserMailer.comment_reply_email( @current_user, @comment.commentable.user, @comment.commentable.url ).deliver_now
             end
           end
         end

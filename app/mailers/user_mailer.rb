@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "noreply@emoticode.net"
+  default from: "info@emoticode.net"
 
   def confirmation_email(user,password)
     @user     = user

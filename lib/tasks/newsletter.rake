@@ -4,7 +4,7 @@ namespace :newsletter do
     users   = User.joins(:profile).where(:profiles => {:weekly_newsletter => 1})
     sources = Source.visible.where( 'created_at >= UNIX_TIMESTAMP() - 604800' )
     users.each do |user|
-      NewsletterMailer.weekly(user,sources).deliver
+      NewsletterMailer.weekly(user,sources).deliver_now
     end
   end
 end
