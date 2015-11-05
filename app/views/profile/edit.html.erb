@@ -33,7 +33,7 @@
       <%= fp.text_field :gplus, :placeholder => 'Google+ Profile' %>
 
       <%= fp.label "Receive the weekly newsletter." %> 
-      <%= fp.check_box :weekly_newsletter %>
+      <%= fp.check_box :weekly_newsletter, disabled: true %>
 
       <%= fp.label "Receive an email notification when a user starts following you." %> 
       <%= fp.check_box :follow_mail %>
