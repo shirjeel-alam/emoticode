@@ -82,10 +82,10 @@ EmoticodeRails::Application.configure do
   config.action_controller.include_all_helpers = false
 
   # outgoing email configuration
-  config.action_mailer.delivery_method = :sendmail
+  # config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = { from: 'noreplay@emoticode.net' }
+  config.action_mailer.default_options = { from: 'noreply@emoticode.net' }
 
   # disable view logging
   config.action_view.logger = nil

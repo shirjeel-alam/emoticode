@@ -1,5 +1,5 @@
 class FollowMailer < ActionMailer::Base
-  default from: "info@emoticode.net"
+  default from: "noreply@emoticode.net"
 
   def follow( user, who )
     @user = user

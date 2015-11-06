@@ -33,6 +33,8 @@ gem 'devise'
 gem 'activeadmin', '1.0.0.pre2'                                   # admin interface
 gem 'simple_similarity'
 
+gem 'sendgrid-rails'
+
 # social features
 gem 'koala', '~> 2.2'
 gem 'twitter', '~> 4.8.1'
