@@ -1,7 +1,5 @@
-<div style="width:300px;height:250px;margin:0 auto;">
-  <% if Rails.env.development? %>
-    <h1>Advertisement Here</h1>
-  <% else %>
-    <script async src="http://pagead2.googlesyndication.com/pagead/adsbygoogle.js"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4060910562914941" data-ad-slot="5771057634" data-ad-format="auto"></ins><script>(adsbygoogle=window.adsbygoogle || []).push({});</script>
-  <% end %>
-</div>
+<% if Rails.env.development? %>
+  <h1>Advertisement Here</h1>
+<% else %>
+  <ins class="adsbygoogle" style="display:block;width:300px;height:250px;" data-ad-client="ca-pub-4060910562914941" data-ad-slot="5771057634"></ins><script>(adsbygoogle=window.adsbygoogle || []).push({});</script>
+<% end %>
