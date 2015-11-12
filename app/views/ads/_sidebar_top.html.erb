@@ -1,12 +1,7 @@
-<%#= render partial: 'ads/adsense', locals: { opts: {slot: '9597895776', width: 300, height: 250} } %>
 <div style="width:300px;height:250px;margin:0 auto;">
-<% if Rails.env.development? %>
-      <h1>Advertisement Here</h1>
-    <% else %>
-<script type='text/javascript'>
-  <!--//<![CDATA[
-    document.MAX_ct0="";var m3_u="https:"==location.protocol?"https://cas.criteo.com/delivery/ajs.php?":"http://cas.criteo.com/delivery/ajs.php?",m3_r=Math.floor(99999999999*Math.random());document.write("<script type='text/javascript' src='"+m3_u),document.write("zoneid=109754"),document.write("&nodis=1"),document.write("&cb="+m3_r),","!=document.MAX_used&&document.write("&exclude="+document.MAX_used),document.write(document.charset?"&charset="+document.charset:document.characterSet?"&charset="+document.characterSet:""),document.write("&loc="+escape(window.location)),document.referrer&&document.write("&referer="+escape(document.referrer)),document.context&&document.write("&context="+escape(document.context)),"undefined"!=typeof document.MAX_ct0&&"http"==document.MAX_ct0.substring(0,4)&&document.write("&ct0="+escape(document.MAX_ct0)),document.mmm_fo&&document.write("&mmm_fo=1"),document.write("'></script>");
-  //]]>-->
-</script>
-<% end %>
+  <% if Rails.env.development? %>
+    <h1>Advertisement Here</h1>
+  <% else %>
+    <script async src="//"></script> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4060910562914941" data-ad-slot="5771057634" data-ad-format="auto"></ins> <script>(adsbygoogle=window.adsbygoogle || []).push({});</script>
+  <% end %>
 </div>
