@@ -22,6 +22,8 @@ class Event < ActiveRecord::Base
   after_save :invalidate_cache!
   after_create :invalidate_cache!
 
+  validates :user_id, presence: true
+
   TYPES = {
     :favorited        => 1,
     :registered       => 2,
