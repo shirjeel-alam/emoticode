@@ -1,1 +1,1 @@
-sent <%= link_to "his #{event.data.to_i.ordinalize}", event.source.url %> content
+sent <%= link_to "his #{event.data.to_i.ordinalize}", event.source.url rescue nil %> content

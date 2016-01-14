@@ -1,2 +1,2 @@
-liked <%= link_to event.source.title, event.source.url %>
+liked <%= link_to event.source.title rescue nil, event.source.url rescue nil %>
 
